@@ -17,8 +17,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :recipe_user_id %>
+    <%= form.number_field :user_id, id: :recipe_user_id, value: current_user.id, type: "hidden" %>
   </div>
 
   <div class="field">
@@ -28,12 +27,12 @@
 
   <div class="field">
     <%= form.label :ingredient_list %>
-    <%= form.text_area :ingredient_list, id: :recipe_ingredient_list %>
+    <%= form.text_area :ingredient_list, id: :recipe_ingredient_list, :class => 'textblock' %>
   </div>
 
   <div class="field">
     <%= form.label :directions_list %>
-    <%= form.text_area :directions_list, id: :recipe_directions_list %>
+    <%= form.text_area :directions_list, id: :recipe_directions_list, :class => 'textblock' %>
   </div>
 
   <div class="actions">

@@ -1,10 +1,17 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update, :destroy, :show]
 
   # GET /recipes
   # GET /recipes.json
   def index
     @recipes = Recipe.all
+      if params[:search]
+        @recipes = Recipe.search(params[:search]).order("created_at DESC")
+      else
+        @recipes = Recipe.all.order("created_at DESC")
+      end
   end
 
   # GET /recipes/1
@@ -71,4 +78,10 @@ class RecipesController < ApplicationController
     def recipe_params
       params.require(:recipe).permit(:name, :user_id, :description, :ingredient_list, :directions_list)
     end
+    
+  def correct_user
+    @correct = current_user.recipes.find_by(id: params[:id])
+    redirect_to recipes_path, notice: "Hey, that's not allowed!!" if @correct.nil?
+  end
+    
 end
