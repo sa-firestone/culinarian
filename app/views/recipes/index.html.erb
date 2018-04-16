@@ -1,27 +1,42 @@
-<h1>Recipes</h1>
-
-<table class="table table-striped table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3">Options</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= recipe.name %></td>
-        <td><%= recipe.description %></td>
-        <td><%= link_to 'Go To', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Trash', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<h3>Find a Recipe!</h3>
 <br>
 
-<%= link_to 'New Recipe', new_recipe_path %>
+<div class="search">
+  <%= form_tag recipes_path, :method => 'get' do %>
+     <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+     </p>
+ <% end %>
+</div><br><br>
+
+<h1>Your Recipes</h1>
+
+<div>
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th colspan="3">Options</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @recipes.each do |recipe| %>
+          <% if recipe.user_id == current.user_id %>
+              <tr>
+                <td><%= recipe.name %></td>
+                <td><%= recipe.description %></td>
+                <td><%= link_to 'Go To', recipe %></td>
+                <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+                <td><%= link_to 'Trash', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          <% end %>
+      </tbody>
+    </table>
+</div>
+<br>
+
+<%= link_to 'New Recipe', new_recipe_path %><br><br>
