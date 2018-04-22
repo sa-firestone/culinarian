@@ -1,8 +1,9 @@
 class Recipe < ApplicationRecord
     belongs_to :user
-    has_one :category
-    @recipes = Recipe.all
-    validates :name, presence: true
+      has_one :category
+      has_and_belongs_to_many :ingredient
+#     @recipes = Recipe.all
+#     validates :name, presence: true
     
     def self.search(search)
       if search.present?
