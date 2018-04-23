@@ -12,5 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap
+ *= require font-awesome.css
+ *= require agency.css
+ *= require agency.scss
  */
 
