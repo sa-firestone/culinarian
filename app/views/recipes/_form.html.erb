@@ -12,28 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name %><br>
     <%= form.text_field :name, id: :recipe_name %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= form.number_field :user_id, id: :recipe_user_id, value: current_user.id, type: "hidden" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :recipe_description %>
-  </div>
+  <div class="col-sm-6">
+    <%= form.label :description %><br>
+    <%= form.text_area :description, id: :recipe_description, :class => 'form-control' %>
+  </div><br>
 
-  <div class="field">
-    <%= form.label :ingredient_list %>
-    <%= form.text_area :ingredient_list, id: :recipe_ingredient_list, :class => 'textblock' %>
-  </div>
+  <div class="col-sm-6">
+    <%= form.label :ingredient_list %><br>
+    <%= form.text_area :ingredient_list, id: :recipe_ingredient_list, :class => 'form-control', :rows => 5 %>
+  </div><br>
 
-  <div class="field">
-    <%= form.label :directions_list %>
-    <%= form.text_area :directions_list, id: :recipe_directions_list, :class => 'textblock' %>
-  </div>
+  <div class="col-sm-6">
+    <%= form.label :directions_list %><br>
+    <%= form.text_area :directions_list, id: :recipe_directions_list, :class => 'form-control', :rows => 10 %>
+  </div><br>
 
   <div class="actions">
     <%= form.submit %>

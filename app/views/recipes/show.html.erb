@@ -1,27 +1,28 @@
-<p>
-  <strong>Name:</strong>
+<br><br>
+<div align="center">
+  <h1><strong>
   <%= @recipe.name %>
-</p>
+  </strong></h1>
 
-<p>
+<p hidden>
   <strong>User:</strong>
   <%= @recipe.user_id %>
 </p>
 
 <p>
-  <strong>Description:</strong>
   <%= @recipe.description %>
-</p>
+</p><br>
 
-<p>
-  <strong>Ingredient list:</strong>
+<p align="left" style=padding-left:300px;>
+  <strong>Ingredients:</strong><br>
   <%= @recipe.ingredient_list %>
 </p>
 
-<p>
-  <strong>Directions list:</strong>
+<p align="left" style=padding-left:300px;padding-right:300px;>
+  <strong>Directions:</strong><br>
   <%= @recipe.directions_list %>
-</p>
+</p><br>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
+</div>

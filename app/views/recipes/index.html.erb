@@ -28,7 +28,7 @@
 
       <tbody>
         <% @recipes.each do |recipe| %>
-          <% if recipe.user_id == current.user_id %>
+          <% if recipe.user_id == current_user %>
               <tr>
                 <td><%= recipe.name %></td>
                 <td><%= recipe.description %></td>
@@ -43,4 +43,4 @@
 </div>
 <br>
 
-<%= link_to 'New Recipe', new_recipe_path, class: "btn btn-default btn-lg" %><br><br>
+<%= link_to 'New Recipe', new_recipe_path, class: "btn btn-lg bg-dark" %><br><br>
