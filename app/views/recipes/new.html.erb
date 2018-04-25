@@ -1,11 +1,10 @@
-<br><br>
-<div align="center">    
-    <div><h1>New Recipe</h1></div><br>
+<div class="panel panel-default">    
+    <div class="panel-heading"><h1>New Recipe</h1></div>
 
-    <div>
+    <div class="panel-body">
         <%= render 'form', recipe: @recipe %>
     </div>
-    <div>
+    <div class="panel-footer">
         <%= link_to 'Back', recipes_path %>
     </div>
 </div>
